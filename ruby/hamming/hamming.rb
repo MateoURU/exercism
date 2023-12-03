@@ -8,14 +8,19 @@ To get started with TDD, see the `README.md` file in your
 
 class Hamming
     def self.compute(strand1, strand2)
-        array1 = strand1.split("")
-        array2 = strand2.split("")
-        i = 0
-        c = 0
-        while i < array1.length
-            array1[i] = array2[i] ? c += 1 : "same"
-            i += 1
-        end
-        return c
+
+        raise ArgumentError if strand1.length != strand2.length
+
+        strand1
+            .chars #better than split('')
+            .zip( strand2.chars )
+            .count { |a,b| a!=b }
+
+            # This implementation is ok but not optimal
+            # .map
+            #     .with_index { | ch , idx | [idx, ch]}
+            #     .to_h
+            #         .map{ |key , value| strand2.split('')[key] == value }
+            #         .count(false)
     end
 end
