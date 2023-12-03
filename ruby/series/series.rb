@@ -1,7 +1,14 @@
-=begin
-Write your code for the 'Series' exercise in this file. Make the tests in
-`series_test.rb` pass.
+class Series
+    def initialize(serie)
+        @serie = serie
+    end
+    def slices(n)
+        raise ArgumentError if n > @serie.length
 
-To get started with TDD, see the `README.md` file in your
-`ruby/series` directory.
-=end
+        @serie
+            .split('')
+            .each_cons(n)
+            .to_a
+            .map { |i| i.join }
+    end
+end
