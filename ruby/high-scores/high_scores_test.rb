@@ -3,19 +3,19 @@ require_relative 'high_scores'
 
 class HighScoresTest < Minitest::Test
   def test_list_of_scores
-    # skip
+    #
     scores = [30, 50, 20, 70]
     assert_equal [30, 50, 20, 70], HighScores.new(scores).scores
   end
 
   def test_latest_score
-    # skip
+    #
     scores = [100, 0, 90, 30]
     assert_equal 30, HighScores.new(scores).latest
   end
 
   def test_personal_best
-    # skip
+    #
     scores = [40, 100, 70]
     assert_equal 100, HighScores.new(scores).personal_best
   end
